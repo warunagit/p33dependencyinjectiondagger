@@ -40,6 +40,10 @@ class MainActivity : Activity() {
         //mobile.turnOnMobile()
 
         //state of module
-        DaggerMobileComponent.builder().speakerHdModule(SpeakerHdModule(4))
+        DaggerMobileComponent
+            .builder()
+            .speakerHdModule(SpeakerHdModule(4))
+            .build()
+            .inject(this)
     }
 }
