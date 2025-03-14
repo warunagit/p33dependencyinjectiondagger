@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.cycolabs.p33dependencyinjectiondagger.DaggerMobileComponent
 import com.cycolabs.p33dependencyinjectiondagger.R
+import com.cycolabs.p33dependencyinjectiondagger.SpeakerHdModule
 import jakarta.inject.Inject
 import jakarta.inject.Provider
 
@@ -39,6 +40,6 @@ class MainActivity : Activity() {
         //mobile.turnOnMobile()
 
         //state of module
-        DaggerMobileComponent.builder().speakerHdModule(4)
+        DaggerMobileComponent.builder().speakerHdModule(SpeakerHdModule(4))
     }
 }
