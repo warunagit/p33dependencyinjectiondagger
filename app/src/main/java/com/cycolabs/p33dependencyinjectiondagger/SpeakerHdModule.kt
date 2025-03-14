@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 
 @Module
-class SpeakerHdModule {
+class SpeakerHdModule(var speakerChannels: Int) {
 
     @Provides
     fun providesSpeakerHd(speakerHD: SpeakerHD):Speaker{

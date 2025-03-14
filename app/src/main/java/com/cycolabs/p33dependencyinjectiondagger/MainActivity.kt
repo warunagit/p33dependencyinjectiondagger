@@ -18,8 +18,8 @@ class MainActivity : Activity() {
     //5-For third-party classess, must create a dagger module with annotations.
     // ThirdParty, ThirdPartyModule
     // And should introduce the third party class to joint class: MobileComponent
-    //6-For third-party interfaces,
-
+    //6-For third-party interfaces, Speaker: should create two extra classes
+    //7-State of module
 
     //private lateinit var mobile:Mobile
 
@@ -30,9 +30,15 @@ class MainActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //method injection
         //DaggerMobileComponent.create().getMobileInstance().turnOnMobile()
 
-        DaggerMobileComponent.create().inject(this)
-        mobile.turnOnMobile()
+        //field injection
+        //cannot use with custom module constructor: Speaker:HdModule
+        //DaggerMobileComponent.create().inject(this)
+        //mobile.turnOnMobile()
+
+        //state of module
+        DaggerMobileComponent.builder().speakerHdModule(4)
     }
 }
