@@ -34,6 +34,9 @@ android {
     kotlinOptions {
         jvmTarget = "11"
     }
+    kapt {
+        generateStubs = true
+    }
 }
 
 dependencies {
@@ -47,6 +50,11 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    implementation ("com.google.dagger:dagger:2.44.2")
-    annotationProcessor ("com.google.dagger:dagger-compiler:2.44.2")
+    implementation ("com.google.dagger:dagger:2.55")
+    kapt ("com.google.dagger:dagger-compiler:2.55")
+
+    annotationProcessor ("com.google.dagger:dagger-compiler:2.55")
+    implementation ("com.google.dagger:dagger-android:2.55")
+    implementation ("com.google.dagger:dagger-android-support:2.55") // if you use the support libraries
+    annotationProcessor ("com.google.dagger:dagger-android-processor:2.55")
 }
