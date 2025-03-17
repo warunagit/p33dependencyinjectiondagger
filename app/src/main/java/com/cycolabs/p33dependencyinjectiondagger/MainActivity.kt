@@ -4,6 +4,7 @@ import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.cycolabs.p33dependencyinjectiondagger.DaggerMobileComponent
+import com.cycolabs.p33dependencyinjectiondagger.MobileApplication
 import com.cycolabs.p33dependencyinjectiondagger.R
 import com.cycolabs.p33dependencyinjectiondagger.SpeakerHdModule
 import jakarta.inject.Inject
@@ -21,6 +22,8 @@ class MainActivity : Activity() {
     // And should introduce the third party class to joint class: MobileComponent
     //6-For third-party interfaces, Speaker: should create two extra classes
     //7-State of module
+    //8-work with multiple activities: Need sub-class for activity: MobileApplication
+    //update manifest file: add name=".SubClassName"
 
     //private lateinit var mobile:Mobile
 
@@ -40,10 +43,15 @@ class MainActivity : Activity() {
         //mobile.turnOnMobile()
 
         //state of module
-        DaggerMobileComponent
+        /*DaggerMobileComponent
             .builder()
             .speakerHdModule(SpeakerHdModule(4))
             .build()
+            .inject(this)*/
+
+        //Application class
+        (application as MobileApplication)
+            .mobile
             .inject(this)
     }
 }
